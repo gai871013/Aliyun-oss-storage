@@ -2,8 +2,8 @@
 
 namespace Gai871013\AliOSS;
 
-use Gai871013\Plugins\PutFile;
-use Gai871013\Plugins\PutRemoteFile;
+use Gai871013\AliOSS\Plugins\PutFile;
+use Gai871013\AliOSS\Plugins\PutRemoteFile;
 use Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
