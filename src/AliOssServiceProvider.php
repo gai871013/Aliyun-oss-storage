@@ -1,9 +1,9 @@
 <?php
 
-namespace Jacobcyl\AliOSS;
+namespace Gai871013\AliOSS;
 
-use Jacobcyl\AliOSS\Plugins\PutFile;
-use Jacobcyl\AliOSS\Plugins\PutRemoteFile;
+use Gai871013\AliOSS\Plugins\PutFile;
+use Gai871013\AliOSS\Plugins\PutRemoteFile;
 use Storage;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
@@ -37,10 +37,10 @@ class AliOssServiceProvider extends ServiceProvider
             $epInternal= empty($config['endpoint_internal']) ? $endPoint : $config['endpoint_internal']; // 内部节点
             $cdnDomain = empty($config['cdnDomain']) ? '' : $config['cdnDomain'];
             $bucket    = $config['bucket'];
-            $ssl       = empty($config['ssl']) ? false : $config['ssl']; 
+            $ssl       = empty($config['ssl']) ? false : $config['ssl'];
             $isCname   = empty($config['isCName']) ? false : $config['isCName'];
             $debug     = empty($config['debug']) ? false : $config['debug'];
-            
+
             if($debug) Log::debug('OSS config:', $config);
 
             $client  = new OssClient($accessId, $accessKey, $epInternal, $isCname);
@@ -48,7 +48,7 @@ class AliOssServiceProvider extends ServiceProvider
 
             //Log::debug($client);
             $filesystem =  new Filesystem($adapter);
-            
+
             $filesystem->addPlugin(new PutFile());
             $filesystem->addPlugin(new PutRemoteFile());
             //$filesystem->addPlugin(new CallBack());

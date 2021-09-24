@@ -1,9 +1,10 @@
 # Aliyun-oss-storage for Laravel 5+
 Aliyun oss filesystem storage adapter for laravel 5. You can use Aliyun OSS just like laravel Storage as usual.    
 借鉴了一些优秀的代码，综合各方，同时做了更多优化，将会添加更多完善的接口和插件，打造Laravel最好的OSS Storage扩展
+
+`解决PHP8.0 Required parameter $cdnDomain follows optional parameter 错误`
 ## Inspired By
-- [thephpleague/flysystem-aws-s3-v2](https://github.com/thephpleague/flysystem-aws-s3-v2)
-- [apollopy/flysystem-aliyun-oss](https://github.com/apollopy/flysystem-aliyun-oss) 
+- [jacobcyl/Aliyun-oss-storage](https://github.com/jacobcyl/Aliyun-oss-storage) 
 
 ## Require
 - Laravel 5+
@@ -12,16 +13,16 @@ Aliyun oss filesystem storage adapter for laravel 5. You can use Aliyun OSS just
 ##Installation
 In order to install AliOSS-storage, just add
 
-    "jacobcyl/ali-oss-storage": "^2.0"
+    "gai871013/ali-oss-storage": "^2.0"
 
 to your composer.json. Then run `composer install` or `composer update`.  
 Or you can simply run below command to install:
 
-    "composer require jacobcyl/ali-oss-storage:^2.0"
+    "composer require gai871013/ali-oss-storage:^2.0"
     
 Then in your `config/app.php` add this line to providers array:
 ```php
-Jacobcyl\AliOSS\AliOssServiceProvider::class,
+Gai871013\AliOSS\AliOssServiceProvider::class,
 ```
 ## Configuration
 Add the following in app/filesystems.php:

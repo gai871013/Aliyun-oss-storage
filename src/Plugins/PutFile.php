@@ -6,7 +6,7 @@
  * Time: 下午8:31
  */
 
-namespace Jacobcyl\AliOSS\Plugins;
+namespace Gai871013\AliOSS\Plugins;
 
 use Illuminate\Support\Facades\Log;
 use League\Flysystem\Config;
@@ -30,7 +30,7 @@ class PutFile extends AbstractPlugin
         if (method_exists($this->filesystem, 'getConfig')) {
             $config->setFallback($this->filesystem->getConfig());
         }
-        
+
         return (bool)$this->filesystem->getAdapter()->writeFile($path, $filePath, $config);
     }
 }

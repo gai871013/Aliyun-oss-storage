@@ -5,7 +5,7 @@
  * Time: 下午 17:07
  */
 
-namespace Jacobcyl\AliOSS;
+namespace Gai871013\AliOSS;
 
 use Dingo\Api\Contract\Transformer\Adapter;
 use League\Flysystem\Adapter\AbstractAdapter;
@@ -67,7 +67,7 @@ class AliOssAdapter extends AbstractAdapter
     protected $bucket;
 
     protected $endPoint;
-    
+
     protected $cdnDomain;
 
     protected $ssl;
@@ -99,7 +99,7 @@ class AliOssAdapter extends AbstractAdapter
         $ssl,
         $isCname = false,
         $debug = false,
-        $cdnDomain,
+        $cdnDomain = '',
         $prefix = null,
         array $options = []
     )
@@ -549,7 +549,7 @@ class AliOssAdapter extends AbstractAdapter
             $this->logErr(__FUNCTION__, $e);
             return false;
         }
-        
+
         if ($acl == OssClient::OSS_ACL_TYPE_PUBLIC_READ ){
             $res['visibility'] = AdapterInterface::VISIBILITY_PUBLIC;
         }else{
@@ -608,7 +608,7 @@ class AliOssAdapter extends AbstractAdapter
 
             return $result;
         }
-        
+
         $result = array_merge($result, Util::map($object, static::$resultMap), ['type' => 'file']);
 
         return $result;
