@@ -57,7 +57,7 @@ Or you can learn here:
 > First you must use Storage facade
 
 ```php
-use Storage;
+use Illuminate\Support\Facades\Storage;
 ```    
 > Then You can use all APIs of laravel Storage
 

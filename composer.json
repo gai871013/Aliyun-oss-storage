@@ -15,7 +15,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Gai871013\\AliOSS\\": "src/"
+            "gai871013\\AliOSS\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "gai871013\\AliOSS\\AliOssServiceProvider"
+            ]
         }
     }
 }
