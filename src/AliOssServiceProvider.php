@@ -43,6 +43,14 @@ class AliOssServiceProvider extends ServiceProvider
             $endPoint  = $config['endpoint']; // 默认作为外部节点
             $epInternal= $isCname?$cdnDomain:(empty($config['endpoint_internal']) ? $endPoint : $config['endpoint_internal']); // 内部节点
 
+            if (0 === strpos($endPoint, 'http://')) {
+                $endPoint = substr($endPoint, strlen('http://'));
+                $ssl = false;
+            } elseif (0 === strpos($endPoint, 'https://')) {
+                $endPoint = substr($endPoint, strlen('https://'));
+                $ssl = true;
+            }
+
             if($debug) Log::debug('OSS config:', $config);
 
             $client  = new OssClient($accessId, $accessKey, $epInternal, $isCname);
