@@ -568,7 +568,7 @@ class AliOssAdapter extends AbstractAdapter
     public function getUrl( $path )
     {
         if ($this->debug && !$this->has($path)) throw new FileNotFoundException($path.' not found');
-        return ( $this->ssl ? 'https://' : 'http://' ) . ( $this->isCname ? ( $this->cdnDomain == '' ? $this->endPoint : $this->cdnDomain ) : $this->bucket . '.' . $this->endPoint ) . '/' . ltrim($path, '/');
+        return ( $this->ssl ? 'https://' : 'http://' ) . ( $this->isCname ? ( $this->cdnDomain == '' ? $this->endPoint : $this->cdnDomain ) : $this->bucket . '.' . $this->endPoint ) . '/' . ltrim($this->applyPathPrefix($path), '/');
     }
 
     /**
